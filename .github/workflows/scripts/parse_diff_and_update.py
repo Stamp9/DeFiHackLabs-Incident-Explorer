@@ -4,20 +4,40 @@ import os
 import re
 from normalize_attack import normalize_attack_type
 
-REPO_B_PATH = "other-repo"
-COMMIT_TRACK_FILE = ".last_repo_b_commit"
+REPO_MAIN_PATH = "main_repo"
+COMMIT_TRACK_FILE = ".last_repo_main_commit"
 INCIDENTS_FILE = "incidents.json"
 
+# Check if current commit file exists
+if not os.path.exists("repo_main_current_commit.txt"):
+    print("Error: repo_main_current_commit.txt not found.")
+    exit(1)
+
+with open("repo_main_current_commit.txt", "r") as f:
+    current_commit = f.read().strip()
+
+# Handle first run scenario
 if os.path.exists(COMMIT_TRACK_FILE):
     with open(COMMIT_TRACK_FILE, "r") as f:
         last_commit = f.read().strip()
 else:
-    last_commit = None
+    # For first run, get the commit before the current one
+    try:
+        last_commit = subprocess.check_output(
+            [
+                "git",
+                "-C",
+                REPO_MAIN_PATH,
+                "rev-parse",
+                f"{current_commit}~1",  # Get parent commit
+            ],
+            text=True,
+        ).strip()
+    except subprocess.CalledProcessError:
+        # If there's no parent commit, use the current commit
+        last_commit = current_commit
 
-with open("repo_b_current_commit.txt", "r") as f:
-    current_commit = f.read().strip()
-
-if not last_commit or last_commit == current_commit:
+if last_commit == current_commit:
     with open(COMMIT_TRACK_FILE, "w") as f:
         f.write(current_commit)
     print("No new commits to diff.")
@@ -27,7 +47,7 @@ diff_output = subprocess.check_output(
     [
         "git",
         "-C",
-        REPO_B_PATH,
+        REPO_MAIN_PATH,
         "diff",
         f"{last_commit}..{current_commit}",
         "--",
