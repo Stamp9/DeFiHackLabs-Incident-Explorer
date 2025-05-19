@@ -1,0 +1,119 @@
+import subprocess
+import json
+import os
+import re
+from normalize_attack import normalize_attack_type
+
+REPO_B_PATH = "other-repo"
+COMMIT_TRACK_FILE = ".last_repo_b_commit"
+INCIDENTS_FILE = "incidents.json"
+
+if os.path.exists(COMMIT_TRACK_FILE):
+    with open(COMMIT_TRACK_FILE, "r") as f:
+        last_commit = f.read().strip()
+else:
+    last_commit = None
+
+with open("repo_b_current_commit.txt", "r") as f:
+    current_commit = f.read().strip()
+
+if not last_commit or last_commit == current_commit:
+    with open(COMMIT_TRACK_FILE, "w") as f:
+        f.write(current_commit)
+    print("No new commits to diff.")
+    exit(0)
+
+diff_output = subprocess.check_output(
+    [
+        "git",
+        "-C",
+        REPO_B_PATH,
+        "diff",
+        f"{last_commit}..{current_commit}",
+        "--",
+        "README.md",
+    ],
+    text=True,
+)
+
+lines = [
+    line[1:].strip()
+    for line in diff_output.splitlines()
+    if line.startswith("+") and not line.startswith("+++")
+]
+
+blocks = []
+block = []
+for line in lines:
+    if re.match(r"^\d{8}\s+\w+", line) and block:
+        blocks.append(block)
+        block = [line]
+    else:
+        block.append(line)
+if block:
+    blocks.append(block)
+
+if os.path.exists(INCIDENTS_FILE):
+    with open(INCIDENTS_FILE, "r") as f:
+        incidents = json.load(f)
+else:
+    incidents = []
+
+existing_set = {json.dumps(i, sort_keys=True) for i in incidents}
+new_entries = 0
+
+for block in blocks:
+    if len(block) < 3:
+        continue
+    try:
+        date_line = block[0]
+        lost_line = next(l for l in block if l.lower().startswith("lost:"))
+        contract_line = next((l for l in block if l.endswith(".sol")), "")
+
+        date_match = re.match(r"^(\d{8})\s+(\w+)\s*-\s*(.+)$", date_line)
+        if not date_match:
+            continue
+
+        date, name, raw_type = date_match.groups()
+        raw_type = raw_type.strip()
+        attack_type = normalize_attack_type(raw_type)
+
+        lost_match = re.match(r"Lost:\s*([\d,.]+)\s*([A-Z]{2,5})", lost_line)
+        if not lost_match:
+            continue
+        lost = float(lost_match.group(1).replace(",", ""))
+        loss_type = lost_match.group(2)
+
+        contract_path_match = re.search(r"(src/[^\s]+\.sol)", " ".join(block))
+        contract_path = (
+            contract_path_match.group(1)
+            if contract_path_match
+            else contract_line.strip()
+        )
+
+        incident = {
+            "date": date,
+            "name": name,
+            "type": attack_type,
+            "Lost": lost,
+            "lossType": loss_type,
+            "Contract": contract_path,
+        }
+
+        key = json.dumps(incident, sort_keys=True)
+        if key not in existing_set:
+            incidents.append(incident)
+            new_entries += 1
+    except Exception as e:
+        print(f"Failed to parse block: {block}\n{e}")
+        continue
+
+if new_entries:
+    with open(INCIDENTS_FILE, "w") as f:
+        json.dump(incidents, f, indent=4)
+    print(f"✅ Added {new_entries} new incidents.")
+else:
+    print("✅ No new incidents found.")
+
+with open(COMMIT_TRACK_FILE, "w") as f:
+    f.write(current_commit)
