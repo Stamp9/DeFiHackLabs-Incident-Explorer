@@ -26,7 +26,7 @@ jobs:
 
       - name: Parse diff and update incidents
         run: |
-          python scripts/parse_diff_and_update.py
+          python .github/workflows/scripts/parse_diff_and_update.py
 
       - name: Configure Git
         run: |
