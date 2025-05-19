@@ -28,20 +28,23 @@ jobs:
         run: |
           python scripts/parse_diff_and_update.py
 
-            - name: Create Pull Request
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Configure Git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+      - name: Create and push branch
+        run: |
           branch="auto/update-incidents-$(date +%Y%m%d%H%M%S)"
           git checkout -b "$branch"
-
           git add incidents.json .last_repo_main_commit
           git commit -m "Update incidents.json from repo Main diff" || exit 0
           git push origin "$branch"
 
+      - name: Create Pull Request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
           gh pr create \
             --title "🤖 Auto Update incidents.json" \
             --body "This PR updates \`incidents.json\` from new events in repo B README." \
