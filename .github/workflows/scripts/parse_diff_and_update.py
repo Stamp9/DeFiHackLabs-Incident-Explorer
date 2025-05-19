@@ -43,6 +43,8 @@ if last_commit == current_commit:
     print("No new commits to diff.")
     exit(0)
 
+print(f"Diffing between commits: {last_commit} and {current_commit}")
+
 diff_output = subprocess.check_output(
     [
         "git",
@@ -55,6 +57,11 @@ diff_output = subprocess.check_output(
     ],
     text=True,
 )
+
+# Log the diff output for debugging
+print(f"Diff output length: {len(diff_output)} characters")
+print("First 500 characters of diff:")
+print(diff_output[:500] + ("..." if len(diff_output) > 500 else ""))
 
 lines = [
     line[1:].strip()
