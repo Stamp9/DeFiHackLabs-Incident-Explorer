@@ -42,16 +42,18 @@ def _parse_loss(text: str) -> Tuple[float, str]:
       - Lost: 1.23M US$ / $ 1.23M
     """
     patterns = [
-        # Generic lost/loss line with optional Total/~/$, value, optional K/M/B, optional currency token.
-        # Use a lookahead so the number ends only before whitespace, suffix, currency, or end.
+        # Generic lost/loss line; allow attached K/M/B only (no space before suffix)
         re.compile(
             r"(?:Total\s+)?Lo(?:ss|st)\s*[:\-]\s*~?\s*\$?\s*"
-            r"([0-9][0-9,\.]*)(?=\s|[KMBkmb]|$)\s*([KMBkmb]?)\s*([A-Za-z$][A-Za-z0-9$.+\-]{0,15})?",
+            r"([0-9][0-9,\.]*)([KMBkmb])?"  # number with optional attached suffix
+            r"(?:\s+([A-Za-z$][A-Za-z0-9$.+\-]{1,15}))?",  # optional token/currency
             re.IGNORECASE,
         ),
         # Heading style lost
         re.compile(
-            r"^\s*#+\s*Lo(?:ss|st):?\s+([0-9][0-9,\.]*)(?=\s|[KMBkmb]|$)\s*([KMBkmb]?)\s*([A-Za-z$][A-Za-z0-9$.+\-]{1,15})?",
+            r"^\s*#+\s*Lo(?:ss|st):?\s+"
+            r"([0-9][0-9,\.]*)([KMBkmb])?"
+            r"(?:\s+([A-Za-z$][A-Za-z0-9$.+\-]{1,15}))?",
             re.IGNORECASE | re.MULTILINE,
         ),
     ]
