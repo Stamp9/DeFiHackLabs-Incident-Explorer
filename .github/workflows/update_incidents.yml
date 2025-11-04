@@ -1,4 +1,4 @@
-name: Auto-update incidents and rootcause data (PR mode)
+name: Auto-update incidents.json (PR mode)
 
 on:
   # schedule:
