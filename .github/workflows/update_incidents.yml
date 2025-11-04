@@ -31,12 +31,17 @@ jobs:
       - name: Build incidents.json from READMEs
         run: python3 scripts/build_from_readmes.py
 
+      - name: Generate timestamp suffix
+        id: ts
+        shell: bash
+        run: echo "ts=$(date +%Y%m%d-%H%M%S)" >> $GITHUB_OUTPUT
+
       - name: Create Pull Request (commit + PR)
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           base: ${{ github.event.inputs.base_branch || 'main' }}
-          branch: auto/update-${{ github.run_id }}
+          branch: auto/update-${{ steps.ts.outputs.ts }}
           add-paths: |
             incidents.json
           commit-message: "auto: update incidents data"
