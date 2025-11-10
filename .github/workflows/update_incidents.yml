@@ -9,6 +9,10 @@ on:
         description: 'PR base branch (target)'
         required: false
         default: 'main'
+      start_ym:
+        description: 'Include incidents from this YYYYMM onward (e.g., 202505)'
+        required: false
+        default: '202505'
 
 permissions:
   contents: write
@@ -29,7 +33,7 @@ jobs:
           git -C source sparse-checkout set README-POC.md src/test || true
 
       - name: Build incidents.json from READMEs
-        run: python3 scripts/build_from_readmes.py
+        run: python3 scripts/build_from_readmes.py --start-ym ${{ github.event.inputs.start_ym || '202505' }}
 
       - name: Generate timestamp suffix
         id: ts
