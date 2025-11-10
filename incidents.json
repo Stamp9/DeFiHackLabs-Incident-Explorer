@@ -5146,5 +5146,158 @@
     "lossType": "USD",
     "Contract": "src/test/2024-01/OrbitChain_exp.sol",
     "chain": "BSC"
+  },
+  {
+    "date": "20251007",
+    "name": "TokenHolder",
+    "type": "Access Control",
+    "Lost": 20.0,
+    "lossType": "WBNB",
+    "Contract": "src/test/2025-10/TokenHolder_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20251004",
+    "name": "MIMSpell3",
+    "type": "Bypassed Insolvency Check",
+    "Lost": 1700000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2025-10/MIMSpell3_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20250913",
+    "name": "Kame",
+    "type": "Arbitary External Call",
+    "Lost": 18167.8,
+    "lossType": "USD",
+    "Contract": "src/test/2025-09/Kame_exp.sol",
+    "chain": "Sei"
+  },
+  {
+    "date": "20250831",
+    "name": "Hexotic",
+    "type": "Incorrect Input Validation",
+    "Lost": 500.0,
+    "lossType": "USD",
+    "Contract": "src/test/2025-08/Hexotic_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20250830",
+    "name": "EverValueCoin",
+    "type": "Arbitrage",
+    "Lost": 100000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2025-08/EverValueCoin",
+    "chain": "Unknown"
+  },
+  {
+    "date": "20250827",
+    "name": "0xf340",
+    "type": "Access Control",
+    "Lost": 4000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2025-08/0xf340_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20250823",
+    "name": "ABCCApp",
+    "type": "Lack of Access Control",
+    "Lost": 10100.0,
+    "lossType": "USD",
+    "Contract": "src/test/2025-08/ABCCApp_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20250820",
+    "name": "MulticallWithXera",
+    "type": "Access Control",
+    "Lost": 17000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2025-08/MulticallWithXera_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20250820",
+    "name": "0x8d2e",
+    "type": "Access Control",
+    "Lost": 40000.0,
+    "lossType": "USDC",
+    "Contract": "src/test/2025-08/0x8d2e_exp.sol",
+    "chain": "Base"
+  },
+  {
+    "date": "20250816",
+    "name": "d3xai",
+    "type": "Price Manipulation",
+    "Lost": 190.0,
+    "lossType": "BNB",
+    "Contract": "src/test/2025-08/d3xai_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20250815",
+    "name": "PDZ",
+    "type": "Price Manipulation",
+    "Lost": 3.3,
+    "lossType": "BNB",
+    "Contract": "src/test/2025-08/PDZ_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20250815",
+    "name": "SizeCredit",
+    "type": "Access Control",
+    "Lost": 19700.0,
+    "lossType": "USD",
+    "Contract": "src/test/2025-08/SizeCredit_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20250813",
+    "name": "YuliAI",
+    "type": "Price Manipulation",
+    "Lost": 78000.0,
+    "lossType": "USDT",
+    "Contract": "src/test/2025-08/YuliAI_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20250813",
+    "name": "coinbase",
+    "type": "Misconfiguration",
+    "Lost": 300000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2025-08/coinbase_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20250813",
+    "name": "Grizzifi",
+    "type": "Logic Flaw",
+    "Lost": 61000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2025-08/Grizzifi_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20250812",
+    "name": "Bebop",
+    "type": "Arbitrary user input",
+    "Lost": 21000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2025-08/Bebop_dex_exp.sol",
+    "chain": "Arbitrum"
+  },
+  {
+    "date": "20250811",
+    "name": "WXC",
+    "type": "Incorrect token burn mechanism",
+    "Lost": 37.5,
+    "lossType": "WBNB",
+    "Contract": "src/test/2025-08/WXC_Token",
+    "chain": "Unknown"
   }
 ]
