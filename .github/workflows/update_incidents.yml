@@ -33,7 +33,7 @@ jobs:
           git -C source sparse-checkout set README-POC.md src/test || true
 
       - name: Build incidents.json from READMEs
-        run: python3 scripts/build_from_readmes.py --start-ym ${{ github.event.inputs.start_ym || '202505' }}
+        run: python3 scripts/build_from_readmes.py --start-ym ${{ github.event.inputs.start_ym || '202505' }} --preserve-order
 
       - name: Generate timestamp suffix
         id: ts
