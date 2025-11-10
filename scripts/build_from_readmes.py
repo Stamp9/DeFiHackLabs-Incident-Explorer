@@ -309,6 +309,7 @@ def main():
     # Build from READMEs
     parser = argparse.ArgumentParser(description="Build incidents.json from README sources")
     parser.add_argument("--start-ym", dest="start_ym", help="Include only incidents from this YYYYMM onward (e.g., 202505)", default=None)
+    parser.add_argument("--preserve-order", dest="preserve_order", help="Preserve existing incidents.json order and append new items at the end", action="store_true")
     args = parser.parse_args()
 
     new_incidents = build_incidents(start_ym=args.start_ym)
@@ -322,37 +323,20 @@ def main():
         except Exception:
             existing = []
 
-    merged: Dict[str, Dict[str, Any]] = {}
-
-    # Index existing by Contract
-    for it in existing:
-        key = it.get("Contract")
-        if not key:
-            continue
-        merged[key] = it
-
-    # Merge in new items, preferring new non-empty fields
-    for it in new_incidents:
-        key = it.get("Contract")
-        if not key:
-            continue
-        prev = merged.get(key, {})
-
+    def merge_item(prev: Dict[str, Any], it: Dict[str, Any]) -> Dict[str, Any]:
         def pick(field: str, transform=None):
             nv = it.get(field)
             pv = prev.get(field)
             if transform:
                 nv = transform(nv)
-            # For numbers: prefer new if provided and > 0
             if isinstance(nv, (int, float)):
                 return nv if (nv or nv == 0) and (nv > 0 or isinstance(nv, int) and nv == 0) else pv
-            # For strings: prefer new if non-empty
             if isinstance(nv, str):
-                return nv if nv.strip() else pv
-            # Fallback: prefer new if truthy
+                return nv.strip() if nv and nv.strip() else pv
             return nv if nv is not None else pv
 
-        merged[key] = {
+        key = it.get("Contract") or prev.get("Contract")
+        return {
             "date": pick("date"),
             "name": pick("name"),
             "type": pick("type"),
@@ -362,9 +346,44 @@ def main():
             "chain": pick("chain"),
         }
 
-    # Materialize and sort
-    out_list = list(merged.values())
-    out_list.sort(key=lambda x: x.get("date", "00000000"), reverse=True)
+    if args.preserve_order:
+        # Update in place and append new items; do not reorder existing
+        existing_by_contract: Dict[str, Dict[str, Any]] = {}
+        for it in existing:
+            k = it.get("Contract")
+            if k:
+                existing_by_contract[k] = it
+
+        new_to_append: List[Dict[str, Any]] = []
+        for it in new_incidents:
+            key = it.get("Contract")
+            if not key:
+                continue
+            if key in existing_by_contract:
+                updated = merge_item(existing_by_contract[key], it)
+                # mutate the original dict to keep reference in existing list
+                existing_by_contract[key].clear()
+                existing_by_contract[key].update(updated)
+            else:
+                new_to_append.append(it)
+
+        out_list = existing + new_to_append
+    else:
+        merged: Dict[str, Dict[str, Any]] = {}
+        for it in existing:
+            key = it.get("Contract")
+            if not key:
+                continue
+            merged[key] = it
+        for it in new_incidents:
+            key = it.get("Contract")
+            if not key:
+                continue
+            prev = merged.get(key, {})
+            merged[key] = merge_item(prev, it)
+
+        out_list = list(merged.values())
+        out_list.sort(key=lambda x: x.get("date", "00000000"), reverse=True)
 
     with open(OUT_PATH, "w", encoding="utf-8") as f:
         json.dump(out_list, f, indent=2, ensure_ascii=False)
