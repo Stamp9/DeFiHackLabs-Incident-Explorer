@@ -2,6 +2,7 @@
 import os
 import re
 import json
+import argparse
 from typing import Dict, Any, List, Optional, Tuple
 
 
@@ -250,9 +251,16 @@ def _iter_readmes() -> List[str]:
                 paths.append(os.path.join(root, f))
     return paths
 
+def _norm_start_ym(s: Optional[str]) -> Optional[str]:
+    if not s:
+        return None
+    digits = re.sub(r"[^0-9]", "", str(s))
+    return digits[:6] if len(digits) >= 6 else None
 
-def build_incidents() -> List[Dict[str, Any]]:
+
+def build_incidents(start_ym: Optional[str] = None) -> List[Dict[str, Any]]:
     incidents_by_contract: Dict[str, Dict[str, Any]] = {}
+    start_ym = _norm_start_ym(start_ym)
 
     for readme_path in _iter_readmes():
         # Derive folder year/month from path .../YYYY-MM/README.md. For root README-POC.md this will be None.
@@ -273,6 +281,11 @@ def build_incidents() -> List[Dict[str, Any]]:
             inc = _parse_section(sec, folder_y, folder_m)
             if not inc:
                 continue
+            # Skip incidents older than requested start year-month
+            if start_ym:
+                d = (inc.get("date") or "")
+                if len(d) >= 6 and d[:6] < start_ym:
+                    continue
 
             # Determine chain from referenced contract
             contract_rel = inc.get("Contract") or ""
@@ -294,7 +307,11 @@ def main():
         raise SystemExit(f"Missing source repo at {SRC_ROOT}. Shallow-clone DeFiHackLabs into ./source.")
 
     # Build from READMEs
-    new_incidents = build_incidents()
+    parser = argparse.ArgumentParser(description="Build incidents.json from README sources")
+    parser.add_argument("--start-ym", dest="start_ym", help="Include only incidents from this YYYYMM onward (e.g., 202505)", default=None)
+    args = parser.parse_args()
+
+    new_incidents = build_incidents(start_ym=args.start_ym)
 
     # Load existing incidents.json if present and merge (add-on, not overwrite)
     existing: List[Dict[str, Any]] = []
