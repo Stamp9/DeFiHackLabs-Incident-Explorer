@@ -5146,5 +5146,32 @@
     "lossType": "USD",
     "Contract": "src/test/2024-01/OrbitChain_exp.sol",
     "chain": "BSC"
+  },
+  {
+    "date": "20251007",
+    "name": "TokenHolder",
+    "type": "Access Control",
+    "Lost": 20.0,
+    "lossType": "WBNB",
+    "Contract": "src/test/2025-10/TokenHolder_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20251004",
+    "name": "MIMSpell3",
+    "type": "Bypassed Insolvency Check",
+    "Lost": 1700000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2025-10/MIMSpell3_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20250913",
+    "name": "Kame",
+    "type": "Arbitary External Call",
+    "Lost": 18167.8,
+    "lossType": "USD",
+    "Contract": "src/test/2025-09/Kame_exp.sol",
+    "chain": "Sei"
   }
 ]
