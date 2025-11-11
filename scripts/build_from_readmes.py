@@ -43,17 +43,17 @@ def _parse_loss(text: str) -> Tuple[float, str]:
       - Lost: 1.23M US$ / $ 1.23M
     """
     patterns = [
-        # Generic lost/loss line; allow attached K/M/B only (no space before suffix)
+        # Generic lost/loss line; allow optional space before K/M/B suffix
         re.compile(
             r"(?:Total\s+)?Lo(?:ss|st)\s*[:\-]\s*~?\s*\$?\s*"
-            r"([0-9][0-9,\.]*)([KMBkmb])?"  # number with optional attached suffix
+            r"([0-9][0-9,\.]*)\s*([KMBkmb])?"  # number with optional space + suffix
             r"(?:\s+([A-Za-z$][A-Za-z0-9$.+\-]{1,15}))?",  # optional token/currency
             re.IGNORECASE,
         ),
         # Heading style lost
         re.compile(
             r"^\s*#+\s*Lo(?:ss|st):?\s+"
-            r"([0-9][0-9,\.]*)([KMBkmb])?"
+            r"([0-9][0-9,\.]*)\s*([KMBkmb])?"
             r"(?:\s+([A-Za-z$][A-Za-z0-9$.+\-]{1,15}))?",
             re.IGNORECASE | re.MULTILINE,
         ),
