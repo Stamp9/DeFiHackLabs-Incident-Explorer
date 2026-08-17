@@ -5596,5 +5596,770 @@
     "lossType": "USD",
     "Contract": "src/test/2025-05/Nalakuvara_LotteryTicket50_exp.sol",
     "chain": "Base"
+  },
+  {
+    "date": "20260809",
+    "name": "USM",
+    "type": "defund() price split-invariance rounding exploit",
+    "Lost": 70.83,
+    "lossType": "ETH",
+    "Contract": "src/test/2026-08/USM_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260701",
+    "name": "edel-xstock",
+    "type": "Price Oracle Manipulation",
+    "Lost": 204215.57,
+    "lossType": "USDC",
+    "Contract": "src/test/2026-07/edel-xstock_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260629",
+    "name": "Vault4626",
+    "type": "Business Logic Flaw",
+    "Lost": 13.53,
+    "lossType": "WETH",
+    "Contract": "src/test/2026-06/Vault4626_exp.sol",
+    "chain": "Base"
+  },
+  {
+    "date": "20260628",
+    "name": "AIDC",
+    "type": "Business Logic Flaw",
+    "Lost": 220.13,
+    "lossType": "WBNB",
+    "Contract": "src/test/2026-06/AIDC_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260627",
+    "name": "CookFinanceIssuance",
+    "type": "Price Oracle Manipulation",
+    "Lost": 50000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-06/CookFinanceIssuance_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260625",
+    "name": "LixirPermitDrain",
+    "type": "Broken Signature Verification",
+    "Lost": 2.6,
+    "lossType": "ETH",
+    "Contract": "src/test/2026-06/LixirPermitDrain_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260625",
+    "name": "OceanBPoolSideStaking",
+    "type": "BPool single-sided join/exit math with SideStaking gulp accounting",
+    "Lost": 127860.0,
+    "lossType": "MOCEAN",
+    "Contract": "src/test/2026-06/OceanBPoolSideStaking_exp.sol",
+    "chain": "Polygon"
+  },
+  {
+    "date": "20260624",
+    "name": "DLMC",
+    "type": "Reserve-derived livePrice manipulation",
+    "Lost": 222560.22,
+    "lossType": "USDT",
+    "Contract": "src/test/2026-06/DLMC_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260623",
+    "name": "RoyalRoyalties",
+    "type": "Zero-amount ERC1155 batch transfer inflated Royal LDA tier balance",
+    "Lost": 261162.93,
+    "lossType": "USDC",
+    "Contract": "src/test/2026-06/RoyalRoyalties_exp.sol",
+    "chain": "Polygon"
+  },
+  {
+    "date": "20260622",
+    "name": "Aztec Escape Hatch",
+    "type": "proof_id Accounting Bypass (whitehat reproduction)",
+    "Lost": 1603.99,
+    "lossType": "WBNB",
+    "Contract": "src/test/2026-06/AztecEscapeHatch_exp2.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260620",
+    "name": "OLPC",
+    "type": "OLPC pair reserve manipulation",
+    "Lost": 1115903.66,
+    "lossType": "USDT",
+    "Contract": "src/test/2026-06/OLPC_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260618",
+    "name": "JB",
+    "type": "JB helper repeated cycle drains JB/USDT pair",
+    "Lost": 49958.06,
+    "lossType": "USDT",
+    "Contract": "src/test/2026-06/JB_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260617",
+    "name": "Aztec V1",
+    "type": "escapeHatch Proof-Forgery (permissionless RollupProcessor exit)",
+    "Lost": 2200000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-06/AztecEscapeHatch_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260617",
+    "name": "WHALE",
+    "type": "Transfer Accounting Reserve Desync",
+    "Lost": 3460.41,
+    "lossType": "USDT",
+    "Contract": "src/test/2026-06/WHALE_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260617",
+    "name": "LBP",
+    "type": "LBP balanceOf reward accounting",
+    "Lost": 610.56,
+    "lossType": "BNB",
+    "Contract": "src/test/2026-06/LBP_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260616",
+    "name": "DIP",
+    "type": "Fee-on-Transfer Reserve Manipulation",
+    "Lost": 111097.59,
+    "lossType": "USDC",
+    "Contract": "src/test/2026-06/DIP_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260615",
+    "name": "Thetanuts",
+    "type": "Index vault component-share accounting flaw",
+    "Lost": 105471.5,
+    "lossType": "USDC",
+    "Contract": "src/test/2026-06/Thetanuts_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260614",
+    "name": "Aztec Connect",
+    "type": "numRealTxs Proof/Settlement Mismatch (permissionless RollupProcessorV3)",
+    "Lost": 2190000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-06/AztecConnect_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260609",
+    "name": "TOPBPool",
+    "type": "Governance-controlled token mint and Balancer pool drain",
+    "Lost": 944.2,
+    "lossType": "WETH",
+    "Contract": "src/test/2026-06/TOPBPool_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260609",
+    "name": "NovaBox",
+    "type": "Constructor Dividend Checkpoint Bypass",
+    "Lost": 56.73,
+    "lossType": "ETH",
+    "Contract": "src/test/2026-06/NovaBox_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260607",
+    "name": "AmbientCrocSwapDex",
+    "type": "Native surplus accounting flaw",
+    "Lost": 67.85,
+    "lossType": "ETH",
+    "Contract": "src/test/2026-06/AmbientCrocSwapDex_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260606",
+    "name": "BOSS",
+    "type": "BOSS helper mint/burn and transfer-tax pool skew",
+    "Lost": 10207.54,
+    "lossType": "USDT",
+    "Contract": "src/test/2026-06/BOSS_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260605",
+    "name": "DTXT",
+    "type": "Liquidity Misclassification Fee Bypass",
+    "Lost": 35041.11,
+    "lossType": "USDT",
+    "Contract": "src/test/2026-06/DTXT_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260605",
+    "name": "AISOTHPresale",
+    "type": "Fixed-price presale arbitrage",
+    "Lost": 30314.76,
+    "lossType": "USDT",
+    "Contract": "src/test/2026-06/AISOTHPresale_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260604",
+    "name": "BYToken",
+    "type": "Permissionless triggerAutoBurn Reserve Manipulation",
+    "Lost": 87402.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-06/BYToken_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260530",
+    "name": "AROS",
+    "type": "Signature Replay",
+    "Lost": 295000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-05/AROS_exp.sol",
+    "chain": "Unknown"
+  },
+  {
+    "date": "20260529",
+    "name": "YSDAO",
+    "type": "Price Manipulation and Tax Bypass",
+    "Lost": 19490.0,
+    "lossType": "USDT",
+    "Contract": "src/test/2026-05/YSDAO_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260528",
+    "name": "LegendaryMoneyMonNft",
+    "type": "ecrecover address(0) Signature Bypass",
+    "Lost": 85500.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-05/LegendaryMoneyMonNft_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260528",
+    "name": "DxSale",
+    "type": "Ownership Override Attack",
+    "Lost": 7300000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-05/DxSale_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260527",
+    "name": "Joe Agent",
+    "type": "Reentrancy in removeLiquidityViaContract",
+    "Lost": 45000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-05/JoeAgent_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260526",
+    "name": "SKP Token",
+    "type": "Owner Backdoor LP Burn + Price Manipulation",
+    "Lost": 212000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-05/SKP_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260526",
+    "name": "SKP Token",
+    "type": "Deliberately Engineered Drain (Insider Exploit / Rug Pull)",
+    "Lost": 212195.0,
+    "lossType": "USDT",
+    "Contract": "src/test/2026-05/SKP_exp2.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260525",
+    "name": "SquidRouterModule",
+    "type": "Missing caller check",
+    "Lost": 0.25,
+    "lossType": "WBTC",
+    "Contract": "src/test/2026-05/SquidRouterModule_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260525",
+    "name": "New Market Trading",
+    "type": "SquidRouterModule Missing Caller Check",
+    "Lost": 3980000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-05/NewMarketTrading_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260525",
+    "name": "WUSD.fi",
+    "type": "_englove Sybil Incentive Abuse",
+    "Lost": 200000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-05/WUSD_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260522",
+    "name": "FractalProtocol",
+    "type": "Business Logic Flaw",
+    "Lost": 13700.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-05/FractalProtocol_exp.sol",
+    "chain": "Arbitrum"
+  },
+  {
+    "date": "20260521",
+    "name": "MureDistribution",
+    "type": "Signature Verification Bypass",
+    "Lost": 5.45,
+    "lossType": "ETH",
+    "Contract": "src/test/2026-05/MureDistribution_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260520",
+    "name": "MAPProtocol",
+    "type": "Arbitrary Mint",
+    "Lost": 180000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-05/MAPProtocol_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260519",
+    "name": "ElevateFi",
+    "type": "Reserve Price Manipulation",
+    "Lost": 16000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-05/ElevateFi_exp.sol",
+    "chain": "Polygon"
+  },
+  {
+    "date": "20260518",
+    "name": "TesseraSwap",
+    "type": "Callback Repayment Price Spread",
+    "Lost": 20000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-05/TesseraSwap_exp.sol",
+    "chain": "Base"
+  },
+  {
+    "date": "20260517",
+    "name": "VerusBridge",
+    "type": "Insufficient Validation",
+    "Lost": 11580000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-05/VerusBridge_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260517",
+    "name": "SEAToken",
+    "type": "Business Logic Flaw",
+    "Lost": 110000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-05/SEAToken_exp.sol",
+    "chain": "Arbitrum"
+  },
+  {
+    "date": "20260515",
+    "name": "AdsharesBridge",
+    "type": "Insufficient Validation",
+    "Lost": 628000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-05/AdsharesBridge_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260512",
+    "name": "SQTokenStaking",
+    "type": "Access Control",
+    "Lost": 346100.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-05/SQTokenStaking_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260511",
+    "name": "INKFinance",
+    "type": "Business Logic Flaw",
+    "Lost": 140000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-05/INKFinance_exp.sol",
+    "chain": "Polygon"
+  },
+  {
+    "date": "20260511",
+    "name": "HumaFinance",
+    "type": "Credit Approval Bypass",
+    "Lost": 101000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-05/HumaCreditApprovalBypass_exp.sol",
+    "chain": "Polygon"
+  },
+  {
+    "date": "20260510",
+    "name": "Renegade",
+    "type": "Uninitialized Proxy",
+    "Lost": 209000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-05/Renegade_exp.sol",
+    "chain": "Arbitrum"
+  },
+  {
+    "date": "20260507",
+    "name": "TrustedVolumes",
+    "type": "Signature Replay",
+    "Lost": 5870000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-05/TrustedVolumes_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260505",
+    "name": "Ekubo",
+    "type": "Business Logic Flaw",
+    "Lost": 1400000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-05/Ekubo_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260501",
+    "name": "SharwaMarginTrading",
+    "type": "Hegic collateral spot price manipulation",
+    "Lost": 32850.0,
+    "lossType": "USDC",
+    "Contract": "src/test/2026-05/SharwaMarginTrading_exp.sol",
+    "chain": "Arbitrum"
+  },
+  {
+    "date": "20260428",
+    "name": "RWAVault",
+    "type": "Missing ERC4626 allowance check",
+    "Lost": 398655.47,
+    "lossType": "USDC",
+    "Contract": "src/test/2026-04/RWAVault_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260428",
+    "name": "JUDAO",
+    "type": "JUDAO sell-hook reserve drain",
+    "Lost": 205000.0,
+    "lossType": "USDT",
+    "Contract": "src/test/2026-04/JUDAO_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260427",
+    "name": "Unverified_a152",
+    "type": "AllowanceTarget approval drain",
+    "Lost": 229000.0,
+    "lossType": "USDT",
+    "Contract": "src/test/2026-04/unverified_a152_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260425",
+    "name": "SingularityDynaVault",
+    "type": "Oracle Misconfiguration / Share Inflation",
+    "Lost": 413130.0,
+    "lossType": "USDC",
+    "Contract": "src/test/2026-04/SingularityDynaVault_exp.sol",
+    "chain": "Base"
+  },
+  {
+    "date": "20260423",
+    "name": "GiddyVaultV3",
+    "type": "Incomplete Signature Coverage",
+    "Lost": 1300000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-04/giddyvaultv3_compound_auth_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260421",
+    "name": "KipseliPropAMM",
+    "type": "Pricing / Decimals Mismatch",
+    "Lost": 0.93,
+    "lossType": "CBBTC",
+    "Contract": "src/test/2026-04/KipseliPropAMM_exp.sol",
+    "chain": "Base"
+  },
+  {
+    "date": "20260420",
+    "name": "JuiceboxREVLoans",
+    "type": "Fake terminal loan source validation bypass",
+    "Lost": 21.77,
+    "lossType": "ETH",
+    "Contract": "src/test/2026-04/JuiceboxREVLoans_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260420",
+    "name": "ThetanutsVaultShareRounding",
+    "type": "Vault Share Rounding Manipulation",
+    "Lost": 0.15,
+    "lossType": "WBTC",
+    "Contract": "src/test/2026-04/ThetanutsVaultShareRounding_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260419",
+    "name": "AaveRebalancerCreditDelegation",
+    "type": "Arbitrary External Call / Credit Delegation Abuse",
+    "Lost": 6999.91,
+    "lossType": "WAVAX",
+    "Contract": "src/test/2026-04/AaveRebalancerCreditDelegation_exp.sol",
+    "chain": "Avalanche"
+  },
+  {
+    "date": "20260415",
+    "name": "XLootStaking",
+    "type": "Duplicate xLOOT Redemption",
+    "Lost": 6.21,
+    "lossType": "ETH",
+    "Contract": "src/test/2026-04/XLootStaking_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260414",
+    "name": "MONA LisaVault",
+    "type": "reward-farming / BurnAddress accounting exploit!",
+    "Lost": 60950.0,
+    "lossType": "USDT",
+    "Contract": "src/test/2026-04/MONA_LisaVault_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260414",
+    "name": "Saturn Protocol",
+    "type": "Vulnerability Disclosure",
+    "Lost": 0.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-04/SaturnProtocol_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260412",
+    "name": "SubQuerySettings",
+    "type": "Settings access control",
+    "Lost": 218070000.0,
+    "lossType": "SQT",
+    "Contract": "src/test/2026-04/SubQuerySettings_exp.sol",
+    "chain": "Base"
+  },
+  {
+    "date": "20260407",
+    "name": "SquidMulticallAllowanceDrain",
+    "type": "Arbitrary Call / Wrong Approval",
+    "Lost": 1.0,
+    "lossType": "ETH",
+    "Contract": "src/test/2026-04/SquidMulticallAllowanceDrain_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260405",
+    "name": "PerpPair",
+    "type": "Virtual AMM Manipulation",
+    "Lost": 165000.0,
+    "lossType": "USDC",
+    "Contract": "src/test/2026-04/PerpPair_exp.sol",
+    "chain": "Linea"
+  },
+  {
+    "date": "20260331",
+    "name": "WhalebitOracleManipulation",
+    "type": "Algebra spot-price oracle manipulation",
+    "Lost": 824000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-03/WhalebitOracleManipulation_exp.sol",
+    "chain": "Polygon"
+  },
+  {
+    "date": "20260328",
+    "name": "VTSwapHook",
+    "type": "Pricing Error in UniswapV4 Hook",
+    "Lost": 4507034.03,
+    "lossType": "VATH",
+    "Contract": "src/test/2026-03/VTSwapHook_exp.sol",
+    "chain": "Arbitrum"
+  },
+  {
+    "date": "20260327",
+    "name": "EST Token",
+    "type": "Incorrect Token Burn Mechanism",
+    "Lost": 150.2,
+    "lossType": "WBNB",
+    "Contract": "src/test/2026-03/EST_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260324",
+    "name": "XocolatlLiquidator",
+    "type": "Access Control / Input Validation",
+    "Lost": 3.25,
+    "lossType": "CBETH",
+    "Contract": "src/test/2026-03/XocolatlLiquidator_exp.sol",
+    "chain": "Base"
+  },
+  {
+    "date": "20260324",
+    "name": "Univ3CollateralToken",
+    "type": "Logic Error",
+    "Lost": 57000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-03/Univ3CollateralToken_exp.sol",
+    "chain": "Optimism"
+  },
+  {
+    "date": "20260323",
+    "name": "BCE",
+    "type": "Deflationary Token Logic Error",
+    "Lost": 800000.0,
+    "lossType": "USDT",
+    "Contract": "src/test/2026-03/bce_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260319",
+    "name": "ATMBlindBox",
+    "type": "Weak Randomness / Predictable RNG",
+    "Lost": 99000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-03/ATMBlindBox_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260319",
+    "name": "Revamp",
+    "type": "Reward Accounting Drain",
+    "Lost": 2.99,
+    "lossType": "BNB",
+    "Contract": "src/test/2026-03/Revamp_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260316",
+    "name": "unverified",
+    "type": "CheckoutPool Old BOC Missing Access Control",
+    "Lost": 85730.0,
+    "lossType": "USDC",
+    "Contract": "src/test/2026-03/unverified_1304_exp.sol",
+    "chain": "Polygon"
+  },
+  {
+    "date": "20260315",
+    "name": "Venus THE",
+    "type": "BorrowBehalf + Donation Attack",
+    "Lost": 913858.2633605214,
+    "lossType": "CAKE",
+    "Contract": "src/test/2026-03/Venus_THE_exp.sol",
+    "chain": "Unknown"
+  },
+  {
+    "date": "20260315",
+    "name": "StakeOnMe",
+    "type": "Owner-privileged JAKE burn reserve drain",
+    "Lost": 0.28,
+    "lossType": "ETH",
+    "Contract": "src/test/2026-03/unverified_237d_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260310",
+    "name": "AlkemiEarn",
+    "type": "Business Logic",
+    "Lost": 43.45,
+    "lossType": "ETH",
+    "Contract": "src/test/2026-03/AlkemiEarn_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260302",
+    "name": "Curve LlamaLend",
+    "type": "Share price manipulation",
+    "Lost": 240000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-03/Curve_LlamaLend_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260222",
+    "name": "LAXO Token",
+    "type": "Incorrect Burn Logic",
+    "Lost": 137000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-02/LAXO_Token_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260216",
+    "name": "XDKRecycle",
+    "type": "XDK recycle reserve manipulation",
+    "Lost": 6.84,
+    "lossType": "WBNB",
+    "Contract": "src/test/2026-02/XDKRecycle_exp.sol",
+    "chain": "BSC"
+  },
+  {
+    "date": "20260215",
+    "name": "Moonwell",
+    "type": "Faulty Oracle",
+    "Lost": 1780000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-02/Moonwell_exp.sol",
+    "chain": "Base"
+  },
+  {
+    "date": "20260120",
+    "name": "SynapLogic",
+    "type": "Business Logic Flaw",
+    "Lost": 27.6,
+    "lossType": "ETH",
+    "Contract": "src/test/2026-01/SynapLogic_exp.sol",
+    "chain": "Base"
+  },
+  {
+    "date": "20260110",
+    "name": "FutureSwap",
+    "type": "Unit Mismatch",
+    "Lost": 433000.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-01/futureswap_exp.sol",
+    "chain": "Arbitrum"
+  },
+  {
+    "date": "20260109",
+    "name": "Truebit",
+    "type": "OverFlow",
+    "Lost": 8540.0,
+    "lossType": "USD",
+    "Contract": "src/test/2026-01/Truebit_exp.sol",
+    "chain": "Ethereum"
+  },
+  {
+    "date": "20260101",
+    "name": "PRXVT",
+    "type": "Bussiness Logic Flaw",
+    "Lost": 32.8,
+    "lossType": "ETH",
+    "Contract": "src/test/2026-01/PRXVT_exp.sol",
+    "chain": "Base"
   }
 ]
